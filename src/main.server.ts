@@ -2,6 +2,8 @@ import { bootstrapApplication } from '@angular/platform-browser';
 import { App } from './app/app';
 import { config } from './app/app.config.server';
 
-const bootstrap = () => bootstrapApplication(App, config);
+export default function bootstrap(context: unknown) {
+  return bootstrapApplication(App, config as any, context as any);
+}
 
-export default bootstrap;
+
