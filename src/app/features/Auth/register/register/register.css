@@ -1,0 +1,52 @@
+.registration{
+    padding-top: 65px;
+}
+.container{
+    margin-top: 15px;
+    border-radius: 20px;
+    background-color: var(--light-color);
+}
+.register-Photo{
+    height: 100vh;
+    background-image: url(../../../../../../public/register-bg.jpg);
+    background-size: cover;
+    background-position: center ;
+    background-repeat: no-repeat;
+    border-top-left-radius:20px ;
+    border-bottom-left-radius:20px ;
+}
+.register-Photo h1{
+    padding-left: 15px;
+    padding-top: 15px;
+    color: rgb(4, 98, 4);
+    font-weight: 900;
+}
+.register-Photo h1 span{
+    padding-left: 50px;
+    color: rgb(4, 99, 4);
+}
+.register-tittle h1{
+    font-size: 28px;
+    font-weight: 900;
+    color: var(--main-color);
+}
+.name{
+    border: 1px solid var(--main-color);
+}
+.name:focus{
+     border-color: var(--main-color);
+     box-shadow: 0 0 8px rgba(25, 135, 84, 0.3);
+}
+.Sign-btn{
+    background-color: var(--main-color);
+    color: white;
+    border: 1px solid var(--main-color);
+}
+.already-have-acount{
+    color: black;
+    font-weight: 600;
+}
+.already-have-acount  span {
+    color: var(--main-color) !important;
+    font-weight: 600;
+}
