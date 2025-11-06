@@ -1,0 +1,60 @@
+<nav>
+  <div class="nav-bar">
+    <div class="logo">
+      <img src="freshcart-logo.svg" alt="logo">
+    </div>
+
+    <div class="toggle-btn" (click)="toggleMenu()">
+      <i class="fa-solid fa-bars"></i>
+    </div>
+
+    <div class="nav-links-div desktop-menu d-flex align-items-center w-100">
+      <ul class="d-flex gap-3 nav-links">
+        <li class="cursor-pointer" routerLink="home" routerLinkActive="active-link"><a>Home</a></li>
+        <li class="cursor-pointer"><a>Cart</a></li>
+        <li class="cursor-pointer"><a>Brand</a></li>
+        <li class="cursor-pointer"><a>Categories</a></li>
+        <li class="cursor-pointer"><a>Favorites</a></li>
+      </ul>
+
+      <div class="auth-links ms-auto">
+        <ul class="d-flex gap-3 nav-links-auth">
+          <li class="cursor-pointer" routerLink="register" routerLinkActive="active-link"><a>Register</a></li>
+          <li class="cursor-pointer" routerLink="login" routerLinkActive="active-link"><a>Login</a></li>
+           <li class="cursor-pointer"><a> <i class="fa-solid fa-cart-shopping"></i> </a></li>
+          <li class="cursor-pointer"><a> <i class="fa-brands fa-facebook"></i> </a></li>
+          <li class="cursor-pointer"><a> <i class="fa-brands fa-instagram"></i> </a></li>
+          <li class="cursor-pointer me-4"><a> <i class="fa-brands fa-twitter"></i> </a></li>
+          <li class="logout-container">
+            <a><i class="fa-solid fa-arrow-right-to-bracket"></i></a>
+            <span class="logout-text">Logout</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- المنيو في الموبايل -->
+  <div class="mobile-menu" [class.active]="isMenuOpen">
+    <div class="menu-content">
+      <div class="menu-header">
+        <img src="freshcart-logo.svg" alt="logo" class="menu-logo">
+        <i class="fa-solid fa-xmark close-icon" (click)="toggleMenu()"></i>
+      </div>
+
+      <ul class="menu-links">
+        <li routerLink="home" routerLinkActive="link-mobile-active" (click)="toggleMenu()">Home</li>
+        <li (click)="toggleMenu()">Cart</li>
+        <li (click)="toggleMenu()">Brand</li>
+        <li (click)="toggleMenu()">Categories</li>
+        <li (click)="toggleMenu()">Favorites</li>
+      </ul>
+
+      <div class="menu-auth">
+        <a (click)="toggleMenu()" routerLink="register">Register</a>
+        <a (click)="toggleMenu()" routerLink="login">Login</a>
+        <a><i class="fa-solid fa-arrow-right-to-bracket phone-logout"></i></a>
+      </div>
+    </div>
+  </div>
+</nav>
