@@ -1,2 +1,4 @@
-export interface Login {
+export interface Loginform {
+    email:string,
+    password:string
 }

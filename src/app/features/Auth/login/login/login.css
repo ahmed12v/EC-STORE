@@ -71,6 +71,8 @@ input.is-invalid {
 
 input.is-valid {
   border: 1px solid #28a745 !important;
+    box-shadow: 0 0 8px rgba(25, 135, 84, 0.3) !important;
+
 }
 
 .small {
