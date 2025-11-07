@@ -44,15 +44,15 @@
 
       <ul class="menu-links">
         <li routerLink="home" routerLinkActive="link-mobile-active" (click)="toggleMenu()">Home</li>
-        <li (click)="toggleMenu()">Cart</li>
-        <li (click)="toggleMenu()">Brand</li>
-        <li (click)="toggleMenu()">Categories</li>
-        <li (click)="toggleMenu()">Favorites</li>
+        <li routerLinkActive="link-mobile-active" (click)="toggleMenu()">Cart</li>
+        <li routerLinkActive="link-mobile-active" (click)="toggleMenu()">Brand</li>
+        <li routerLinkActive="link-mobile-active" (click)="toggleMenu()">Categories</li>
+        <li routerLinkActive="link-mobile-active" (click)="toggleMenu()">Favorites</li>
       </ul>
 
       <div class="menu-auth">
-        <a (click)="toggleMenu()" routerLink="register">Register</a>
-        <a (click)="toggleMenu()" routerLink="login">Login</a>
+        <a (click)="toggleMenu()" routerLink="register" routerLinkActive="active-link">Register</a>
+        <a (click)="toggleMenu()" routerLink="login" routerLinkActive="active-link">Login</a>
         <a><i class="fa-solid fa-arrow-right-to-bracket phone-logout"></i></a>
       </div>
     </div>

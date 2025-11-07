@@ -19,16 +19,16 @@
                 <form>
                     <div class="name-inputs d-flex gap-3">
                  <div class="mb-3 w-50">
-                 <label for="firstName" class="form-label">First Name</label>
-                 <input type="text" class="form-control bg-transparent name"  id="firstName" required>
+                 <label for="fullName" class="form-label">Full Name</label>
+                 <input type="text" class="form-control bg-transparent name"  id="fullName" required>
                  </div>
                  <div class="mb-3 w-50">
-                 <label for="lastName" class="form-label">Last Name</label>
-                 <input type="text" class="form-control bg-transparent name" id="lastName" required>
+                 <label for="phone" class="form-label">Phone</label>
+                 <input type="tel" class="form-control bg-transparent name" id="lastName" required>
                  </div>
                     </div>
                     <div class="mb-3 ">
-                 <label for="lastName" class="form-label">Emai Address</label>
+                 <label for="lastName" class="form-label">Email Address</label>
                  <input type="email" class="form-control bg-transparent name" id="lastName" required>
                  </div>
 
@@ -42,9 +42,9 @@
                  <input type="password" class="form-control bg-transparent name" id="lastName" required>
                  </div>
                 <p class="m-0 p-0 already-have-acount">
-                    Already have an account? <span>Login</span>
+                    Already have an account? <span routerLink="/login">Login</span>
                 </p>
-                 <button class="w-100 mt-3 rounded-3 pt-2 pb-2 Sign-btn">
+                 <button  class="w-100 mt-3 rounded-3 pt-2 pb-2 Sign-btn">
                   Sign Up
                  </button>
                 </form>
