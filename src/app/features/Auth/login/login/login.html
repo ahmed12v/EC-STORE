@@ -1,1 +1,47 @@
-<p>login works!</p>
+<section class="login-section">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-7 col-md-9 col-11">
+        <div class="login-content p-4 p-md-5 shadow-sm rounded-4 bg-white">
+          <div class="login-tittle-div mb-4 text-center">
+            <h1 class="login-tittle">Login Now</h1>
+          </div>
+
+          <form>
+            <!-- Email -->
+            <div class="mb-3 position-relative">
+              <label for="mail" class="form-label">Email Address</label>
+              <input
+                formControlName="email"
+                type="email"
+                class="form-control bg-transparent name"
+                id="mail"
+                required
+              />
+            </div>
+
+            <!-- Password -->
+            <div class="mb-4 position-relative">
+              <label for="pass" class="form-label">Password</label>
+              <input
+                formControlName="password"
+                type="password"
+                class="form-control bg-transparent name"
+                id="pass"
+                required
+              />
+            </div>
+
+            <!-- Buttons -->
+            <div class="d-flex flex-column flex-sm-row align-items-center justify-content-between gap-3">
+              <p class="password-forget mb-0">Forget your password?</p>
+              <button class="Sign-btn rounded-3 px-5 py-2 fw-semibold">
+                Login
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -7,6 +7,7 @@
   border-radius: 20px;
   background-color: var(--light-color);
   overflow: hidden; 
+  
 }
 
 .register-Photo {
@@ -83,7 +84,7 @@
   .register-form {
     padding-top: 25px;
     padding-bottom: 25px;
-    background-color: rgba(255, 255, 255, 0.6);
+    background-color: rgba(255, 255, 255, 0.8);
     border-radius: 15px;
     margin: 0 auto;
   }
@@ -155,3 +156,22 @@
     border-radius: 0;
   }
 }
+/* validation */
+.Sign-btn:disabled{
+  cursor: not-allowed;
+}
+input.is-invalid {
+  border: 1px solid #dc3545 !important;
+  box-shadow: 0 0 8px rgba(162, 4, 4, 0.3) !important;
+}
+
+input.is-valid {
+  border: 1px solid #28a745 !important;
+}
+
+.small {
+  font-size: 0.85rem;
+}
+
+
+

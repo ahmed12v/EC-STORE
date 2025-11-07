@@ -1,3 +1,3 @@
 export enum ecStoreUrl{
-    storeUrl = "" , 
+    storeUrl = "https://ecommerce.routemisr.com" , 
 }

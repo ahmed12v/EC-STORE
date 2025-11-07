@@ -11,41 +11,124 @@
            </div>
            <div class="col-md-6">
             <div class="register-form ps-5 pe-5">
+                
                 <div class="register-tittle mb-5">
                     <h1>
                         Sign Up
                     </h1>
                 </div>
-                <form>
+                @if (errorMasge()) {
+                    <div class="d-flex w-100 justify-content-center text-danger mb-4">
+                      {{errorMasge()}}
+                    </div>
+                }
+                <form [formGroup]="signUpForm"  (ngSubmit)="submitSign()">
                     <div class="name-inputs d-flex gap-3">
                  <div class="mb-3 w-50">
                  <label for="fullName" class="form-label">Full Name</label>
-                 <input type="text" class="form-control bg-transparent name"  id="fullName" required>
+                 <input formControlName="name" type="text" class="form-control bg-transparent name"  id="fullName" required [ngClass]="{
+                    'is-invalid': signUpForm.get('name')?.invalid && signUpForm.get('name')?.touched,
+                    'is-valid': signUpForm.get('name')?.valid && signUpForm.get('name')?.touched
+                   }">
+                 @if (signUpForm.get('name')?.errors&& signUpForm.get('name')?.touched) {
+                    <div class="text-danger mt-1 small">
+                          @if (signUpForm.get('name')?.errors?.['required']) {
+                               <span>Name is required.</span>
+                                }
+                          @if (signUpForm.get('name')?.errors?.['minlength']) {
+                                <span>Minimum 3 characters required.</span>
+                                 }
+                           @if (signUpForm.get('name')?.errors?.['maxlength']) {
+                                 <span>Maximum 20 characters allowed.</span>
+                                  }
+                    </div>
+                 }
                  </div>
                  <div class="mb-3 w-50">
                  <label for="phone" class="form-label">Phone</label>
-                 <input type="tel" class="form-control bg-transparent name" id="lastName" required>
+                 <input formControlName="phone" type="tel" class="form-control bg-transparent name" id="phone" required [ngClass]="{
+                    'is-invalid': signUpForm.get('phone')?.invalid && signUpForm.get('phone')?.touched,
+                    'is-valid': signUpForm.get('phone')?.valid && signUpForm.get('phone')?.touched
+                   }">
+                   @if (signUpForm.get('phone')?.errors&& signUpForm.get('phone')?.touched) {
+                    <div class="text-danger mt-1 small">
+                          @if (signUpForm.get('phone')?.errors?.['required']) {
+                               <span>phone is required.</span>
+                                }
+                          @if (signUpForm.get('phone')?.errors?.['pattern']) {
+                                <span> accept only egypt phone numbers </span>
+                                 }
+                           
+                    </div>
+                 }
                  </div>
                     </div>
                     <div class="mb-3 ">
-                 <label for="lastName" class="form-label">Email Address</label>
-                 <input type="email" class="form-control bg-transparent name" id="lastName" required>
+                 <label for="mail" class="form-label">Email Address</label>
+                 <input formControlName="email" type="email" class="form-control bg-transparent name" id="mail" required [ngClass]="{
+                    'is-invalid': signUpForm.get('email')?.invalid && signUpForm.get('email')?.touched,
+                    'is-valid': signUpForm.get('email')?.valid && signUpForm.get('email')?.touched
+                   }">
+                    @if (signUpForm.get('email')?.errors&& signUpForm.get('email')?.touched) {
+                    <div class="text-danger mt-1 small">
+                          @if (signUpForm.get('email')?.errors?.['required']) {
+                               <span>Email is required.</span>
+                                }
+                          @if (signUpForm.get('email')?.errors?.['email']) {
+                                <span> Please enter valid email </span>
+                                 }
+                           
+                    </div>
+                 }
                  </div>
 
                  <div class="mb-3 ">
-                 <label for="lastName" class="form-label">Password</label>
-                 <input type="password" class="form-control bg-transparent name" id="lastName" required>
+                 <label for="pass" class="form-label">Password</label>
+                 <input formControlName="password" type="password" class="form-control bg-transparent name" id="pass" required [ngClass]="{
+                    'is-invalid': signUpForm.get('password')?.invalid && signUpForm.get('password')?.touched,
+                    'is-valid': signUpForm.get('password')?.valid && signUpForm.get('password')?.touched
+                   }">
+                   @if (signUpForm.get('password')?.errors&& signUpForm.get('password')?.touched) {
+                    <div class="text-danger mt-1 small">
+                          @if (signUpForm.get('password')?.errors?.['required']) {
+                               <span>password is required.</span>
+                                }
+                          @if (signUpForm.get('password')?.errors?.['pattern']) {
+                          <span> Password must start with a capital letter and contain 7–11 characters </span>
+                                 }
+                           
+                    </div>
+                 }
                  </div>
 
                  <div class="mb-3 ">
-                 <label for="lastName" class="form-label">Re-Password</label>
-                 <input type="password" class="form-control bg-transparent name" id="lastName" required>
+                 <label for="rePass" class="form-label">Re-Password</label>
+                 <input formControlName="rePassword" type="password" class="form-control bg-transparent name" id="rePass" required [ngClass]="{
+                    'is-invalid': signUpForm.get('rePassword')?.invalid && signUpForm.get('rePassword')?.touched,
+                    'is-valid': signUpForm.get('rePassword')?.valid && signUpForm.get('rePassword')?.touched
+                   }">
+                   @if (signUpForm.get('rePassword')?.errors&& signUpForm.get('rePassword')?.touched) {
+                    <div class="text-danger mt-1 small">
+                          @if (signUpForm.get('rePassword')?.errors?.['required']) {
+                               <span>Re-Password is required.</span>
+                                }
+                          @if (signUpForm.get('rePassword')?.errors?.['missmatch']) {
+                          <span> Password confirmation is incorrect </span>
+                                 }
+                           
+                    </div>
+                 }
                  </div>
                 <p class="m-0 p-0 already-have-acount">
                     Already have an account? <span routerLink="/login">Login</span>
                 </p>
-                 <button  class="w-100 mt-3 rounded-3 pt-2 pb-2 Sign-btn">
-                  Sign Up
+                 <button type="submit" [disabled]="signUpForm.invalid || btnSpinner()" class="w-100 mt-3 rounded-3 pt-2 pb-2 Sign-btn">
+                    @if(btnSpinner()== true){
+                      <i class="fa fa-solid fa-spinner fa-spin"></i>
+                    }@else{
+                     Sign Up
+                    }
+                  
                  </button>
                 </form>
             </div>
