@@ -33,8 +33,7 @@
   }
 
   .pay-details {
-    flex-direction: column;
-    align-items: flex-start !important;
+    flex-direction: row;
     gap: 20px;
   }
 
@@ -45,7 +44,7 @@
 
 @media (max-width: 624px) {
   .d-flex.align-items-center.gap-3.text-nowrap {
-    flex-direction: column;
+    flex-direction: row;
     align-items: stretch !important;
     gap: 10px !important;
   }
@@ -55,8 +54,8 @@
   }
 
   .btn-main {
-    width: 100%;
-    padding: 8px 0 !important;
+    width: 50%;
+    padding: 5px 0 !important;
     text-align: center;
   }
 
@@ -76,7 +75,7 @@
   }
 
   .pay-details > div {
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
   }
 
