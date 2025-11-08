@@ -16,7 +16,19 @@ export const routes: Routes = [
         loadComponent:()=>
             import('./features/Auth/register/register/register').then((c)=>c.Register)
     },
-
+    {
+        path:'forget-password',
+        loadComponent:()=>
+            import('./features/Auth/forget-password/forget-password/forget-password')
+            .then((c)=>c.ForgetPassword)
+    },
+    {
+        path:'new-pass',
+        loadComponent:()=>
+            import('./features/Auth/newPassword/new-password/new-password')
+            .then((c)=>c.NewPassword)
+    },
+    
     // pages | Components
     {
         path:'home',

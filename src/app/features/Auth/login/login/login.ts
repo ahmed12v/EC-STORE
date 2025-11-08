@@ -5,11 +5,11 @@ import { Loginservice } from '../../../../core/services/Auth/login';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { Loginform } from '../../../../core/interfaces/Auth/login';
 import { tap } from 'rxjs';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-login',
-  imports: [ReactiveFormsModule , CommonModule],
+  imports: [ReactiveFormsModule, CommonModule, RouterLink],
   templateUrl: './login.html',
   styleUrl: './login.css',
 })

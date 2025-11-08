@@ -67,7 +67,7 @@
           <a (click)="toggleMenu()" routerLink="register" routerLinkActive="active-link">Register</a>
           <a (click)="toggleMenu()" routerLink="login" routerLinkActive="active-link">Login</a>
         }@else {
-            <a (click)="logout()"><i class="fa-solid fa-arrow-right-to-bracket phone-logout"></i></a>
+            <a (click)="toggleMenu();logout()"><i class="fa-solid fa-arrow-right-to-bracket phone-logout"></i></a>
         }
         
       </div>
