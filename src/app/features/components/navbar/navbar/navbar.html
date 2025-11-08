@@ -10,25 +10,34 @@
 
     <div class="nav-links-div desktop-menu d-flex align-items-center w-100">
       <ul class="d-flex gap-3 nav-links">
+        @if (isLogin ==true) {
         <li class="cursor-pointer" routerLink="home" routerLinkActive="active-link"><a>Home</a></li>
         <li class="cursor-pointer"><a>Cart</a></li>
         <li class="cursor-pointer"><a>Brand</a></li>
         <li class="cursor-pointer"><a>Categories</a></li>
         <li class="cursor-pointer"><a>Favorites</a></li>
+        }
+       
       </ul>
 
       <div class="auth-links ms-auto">
         <ul class="d-flex gap-3 nav-links-auth">
-          <li class="cursor-pointer" routerLink="register" routerLinkActive="active-link"><a>Register</a></li>
-          <li class="cursor-pointer" routerLink="login" routerLinkActive="active-link"><a>Login</a></li>
-           <li class="cursor-pointer"><a> <i class="fa-solid fa-cart-shopping"></i> </a></li>
+          @if (isLogin ==false) {
+            <li class="cursor-pointer" routerLink="register" routerLinkActive="active-link"><a>Register</a><li>
+            <li class="cursor-pointer" routerLink="login" routerLinkActive="active-link"><a>Login</a></li>
+          }
+          
+          @if (isLogin ==true) {
+            <li class="cursor-pointer"><a> <i class="fa-solid fa-cart-shopping"></i> </a></li>
           <li class="cursor-pointer"><a> <i class="fa-brands fa-facebook"></i> </a></li>
           <li class="cursor-pointer"><a> <i class="fa-brands fa-instagram"></i> </a></li>
           <li class="cursor-pointer me-4"><a> <i class="fa-brands fa-twitter"></i> </a></li>
           <li class="logout-container">
-            <a><i class="fa-solid fa-arrow-right-to-bracket"></i></a>
-            <span class="logout-text">Logout</span>
+              <a (click)="logout()"><i class="fa-solid fa-arrow-right-to-bracket"></i></a>
+              <span class="logout-text" >Logout</span>
           </li>
+          }
+           
         </ul>
       </div>
     </div>
@@ -43,17 +52,24 @@
       </div>
 
       <ul class="menu-links">
-        <li routerLink="home" routerLinkActive="link-mobile-active" (click)="toggleMenu()">Home</li>
+        @if (isLogin ==true) {
+          <li routerLink="home" routerLinkActive="link-mobile-active" (click)="toggleMenu()">Home</li>
         <li routerLinkActive="link-mobile-active" (click)="toggleMenu()">Cart</li>
         <li routerLinkActive="link-mobile-active" (click)="toggleMenu()">Brand</li>
         <li routerLinkActive="link-mobile-active" (click)="toggleMenu()">Categories</li>
         <li routerLinkActive="link-mobile-active" (click)="toggleMenu()">Favorites</li>
+        }
+        
       </ul>
 
       <div class="menu-auth">
-        <a (click)="toggleMenu()" routerLink="register" routerLinkActive="active-link">Register</a>
-        <a (click)="toggleMenu()" routerLink="login" routerLinkActive="active-link">Login</a>
-        <a><i class="fa-solid fa-arrow-right-to-bracket phone-logout"></i></a>
+        @if (isLogin ==false) {
+          <a (click)="toggleMenu()" routerLink="register" routerLinkActive="active-link">Register</a>
+          <a (click)="toggleMenu()" routerLink="login" routerLinkActive="active-link">Login</a>
+        }@else {
+            <a (click)="logout()"><i class="fa-solid fa-arrow-right-to-bracket phone-logout"></i></a>
+        }
+        
       </div>
     </div>
   </div>

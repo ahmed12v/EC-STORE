@@ -8,6 +8,7 @@ body {
 .login-section {
   padding-top: 100px;
   padding-bottom: 60px;
+  z-index: 0;
 }
 
 .login-content {

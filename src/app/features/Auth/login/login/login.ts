@@ -5,6 +5,7 @@ import { Loginservice } from '../../../../core/services/Auth/login';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { Loginform } from '../../../../core/interfaces/Auth/login';
 import { tap } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,7 @@ import { tap } from 'rxjs';
 })
 export class Login {
 
-  constructor(private _Loginservice:Loginservice , private _injector:Injector){}
+  constructor(private _Loginservice:Loginservice , private _injector:Injector , private _Router:Router){}
   banSpinner =signal(false)
   errorMsg =signal('')
 
@@ -31,14 +32,17 @@ export class Login {
           tap({
             next:res =>{
               this.banSpinner.set(false)
-              console.log(res);
+              localStorage.setItem('user-token',res.token)
+              this._Loginservice.UserDataAfterDecoded.next(res.token);
+              this._Router.navigate(['/home'])
+              //console.log(res);
               
             },
             error:err=>{
               this.banSpinner.set(false)
               console.log(err);
               this.errorMsg.set(err.error.message);
-              console.log(this.errorMsg());
+              //console.log(this.errorMsg());
               
               
             }
