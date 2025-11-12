@@ -1,0 +1,11 @@
+@if (showBtn) {
+    <button
+    [ngClass]="{'show' : showBtn}"
+     class="scroll-to-top"
+     (click)="scrolTop()"
+     title="Go to top"
+>
+  <i class="fa-solid fa-arrow-up"></i>
+</button>
+}
+

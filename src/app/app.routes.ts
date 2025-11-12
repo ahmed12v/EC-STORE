@@ -1,6 +1,7 @@
 
 import { Routes } from '@angular/router';
 import { roterGurdGuard } from './core/gurds/roter-gurd-guard';
+import { Notfound } from './features/components/notfound/notfound/notfound';
 
 export const routes: Routes = [
     {
@@ -43,9 +44,6 @@ export const routes: Routes = [
     
     // notfound | error 404
     {
-        path: '**',
-        loadComponent: () =>
-           import('./features/components/notfound/notfound/notfound').then((c) => c.Notfound),
-        canActivate:[roterGurdGuard]
+        path: '**', component:Notfound , 
     }
 ];
