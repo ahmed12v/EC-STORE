@@ -1,0 +1,37 @@
+<div class="container">
+    <div class="d-flex">
+      <p class="p-shop">
+        Shop Categories:
+      </p>
+      <p class="p-shop ms-auto">
+        See All
+      </p>
+    </div>
+    @if (spinerload()) {
+        <div class="d-flex justify-content-center align-items-center">
+            <i class="fa-spin fa-spinner fa-solid spin-color"></i>
+        </div>
+    }@else {
+    <div class="row">
+    <div class="col-12">
+        <owl-carousel-o [options]="customOptions">
+            @for (cato of Result(); track $index) {
+                <ng-template carouselSlide>
+       <div class="slider-items p-3 ">
+             <img [src]='cato.image' alt="" class="gategory-img">
+              <h3 class="gtegory-tittle">
+                {{cato.name}}
+                </h3>
+        </div>
+  </ng-template>
+            }
+  
+  
+
+    </owl-carousel-o>
+        
+    </div>
+  </div>
+    }
+  
+</div>

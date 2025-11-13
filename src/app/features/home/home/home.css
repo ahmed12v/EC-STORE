@@ -1,0 +1,69 @@
+.home-slider-section{
+    padding-top: 65px;
+}
+.category-home-slider{
+    margin-top: 30px;
+}
+.prouduct-section{
+    margin-top: 30px;
+}
+.price{
+    color: var(--main-color);
+}
+.cato-name{
+    color: var(--main-color);
+    font-size: 22px ;
+    font-weight: 400;
+}
+.proud-name{
+     font-size: 20px ;
+    font-weight: 400;
+    color: black;
+}
+.ratin-icon{
+    color: var(--rating-color);
+}
+.price-rating{
+    font-size: 16px;
+}
+.product-item{
+    padding: 20px 20px;
+    
+     box-shadow: rgba(145, 158, 171, .2) 0px 2px 4px -1px, rgba(145, 158, 171, .14) 0px 4px 5px 0px, rgba(145, 158, 171, .12) 0px 1px 10px 0px;;
+    height: auto;
+    border-radius: 10px;
+    transition: all .1s;
+}
+.product-item:hover{
+    border: 2px var(--main-color) solid;
+}
+.product-item:hover .AddCrt-btn{
+    transform: translateY(0);
+    opacity: 1;
+}
+.prouduct-img img{
+    width: 150px;
+    height: 200px;
+}
+.AddCrt-btn{
+    border: 1px solid var(--main-color);
+    background-color: var(--main-color);
+    color: white;
+    border-radius: 5px;
+    padding: 7px 0;
+    transform: translateY(100%);
+    opacity: 0;
+    transition: all 1s;
+}
+.p-shop{
+    font-weight: 700;
+    font-size: 32px;
+    color: var(--main-color);
+}
+@media (max-width:992px) {
+    .p-shop{
+    font-weight: 700;
+    font-size: 22px;
+    color: var(--main-color);
+}
+}

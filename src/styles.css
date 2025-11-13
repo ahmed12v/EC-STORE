@@ -23,3 +23,6 @@ body {
 .cursor-pointer {
   cursor: pointer;
 }
+.spin-color{
+  color: var(--main-color);
+}

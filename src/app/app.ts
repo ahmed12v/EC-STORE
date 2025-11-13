@@ -6,7 +6,7 @@ import { Scrollbnt } from './Addtions/scrollbnt/scrollbnt';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet , Navbar , Footer , Scrollbnt],
+  imports: [RouterOutlet , Navbar , Footer , Scrollbnt ],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

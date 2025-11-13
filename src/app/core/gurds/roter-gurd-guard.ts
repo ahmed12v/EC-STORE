@@ -6,7 +6,7 @@ export const roterGurdGuard: CanActivateFn = (route, state) => {
   if(typeof window !== 'undefined'  && typeof localStorage !== 'undefined'){
 
     const isLoggedIn = !!localStorage.getItem('user-token')
-    const publicRoutes = ['/login', '/register'];
+    const publicRoutes = ['/login', '/register' , '/new-pass' , '/forget-password'];
   // if user logout + ** Url
      if (!isLoggedIn && !publicRoutes.includes(state.url)) {
          const currentRout = localStorage.getItem('last-path') || '/notfound'

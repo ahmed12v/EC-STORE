@@ -1,0 +1,37 @@
+.items-slid .imge{
+    border-radius: 30px !important;
+    height: 500px;
+}
+.owl-carousel .owl-stage {
+  transition: transform 1s ease;
+}
+@media (max-width : 992px) {
+    .items-slid .imge{
+    border-radius: 30px !important;
+    height: 250px;
+}
+}
+.custom-dots {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.custom-dots .dot {
+  cursor: pointer;
+  margin: 0 5px;
+  border: 1px solid #ccc;
+  padding: 1px;
+  border-radius: 4px;
+  transition: transform 0.2s;
+}
+
+.custom-dots .dot img {
+  display: block;
+  width: 50px;
+  height: auto;
+}
+
+.custom-dots .dot:hover {
+  transform: scale(1.1);
+}
