@@ -1,0 +1,42 @@
+
+<section class="produc-detials-section">
+  <div class="container pt-4 pb-3">
+    @if (specialPRoduct()) {
+        <div class="row d-flex align-items-center gy-4">
+        <div class="col-lg-4 col-md-4">
+             <owl-carousel-o [options]="customOptions">
+            @for (cato of specialPRoduct().data?.images; track $index) {
+                <ng-template carouselSlide>
+       <div class="detials-photo">
+             <img [src]="cato" alt="" class="w-100 rounded-5" >
+            </div>
+  </ng-template>
+            }
+  
+  
+
+    </owl-carousel-o>
+            
+        </div>
+        <div class="col-lg-8 col-md-8">
+           <div class="detils-items ps-3">
+             <h1> {{specialPRoduct().data?.title?.slice(0,12)}} </h1>
+             <p class="item-describ"> {{specialPRoduct().data?.description}} </p>
+             <div class="d-flex align-items-center">
+             <p class="price"> {{specialPRoduct().data?.price}} EGP </p>
+                 <p class="rating ms-auto text-black"> <span class="ratin-icon"> <i class="fa-solid fa-star"></i> </span> {{specialPRoduct().data?.ratingsAverage}} </p>
+             </div>
+             <p class="Quantity"> Quantity :{{specialPRoduct().data?.quantity}}  </p>
+
+             <button class="add-btn w-100">  <i class="fa-solid fa-cart-shopping"></i>  Add </button>
+           </div>
+        </div>
+    </div>
+    }
+         
+
+       
+    
+    
+  </div>
+</section>

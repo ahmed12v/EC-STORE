@@ -67,3 +67,39 @@
     color: var(--main-color);
 }
 }
+[appScrollReveal] {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease-in-out;
+}
+
+[appScrollReveal].show {
+  opacity: 1;
+  transform: translateY(0);
+}
+.page-btn {
+  border: none;
+  background-color: white;
+  color: var(--main-color);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.page-btn:hover:not(:disabled) {
+  background-color: var(--main-color);
+  color: white;
+}
+
+.page-btn.active {
+  background-color: var(--main-color);
+  color: white;
+}
+
+.page-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+

@@ -41,6 +41,18 @@ export const routes: Routes = [
             import('./features/home/home/home').then((c)=>c.Home),
              canActivate:[roterGurdGuard]
     },
+    {
+        path:'prouductDeteils/:id',
+        loadComponent:()=>
+            import('./Addtions/prouduct-detials/prouduct-detials').then((c)=>c.ProuductDetials),
+             canActivate:[roterGurdGuard]
+    },
+    {
+        path:'Prouduct',
+        loadComponent:()=>
+            import('./features/components/products/products/products').then((c)=>c.Products),
+             canActivate:[roterGurdGuard]
+    },
     
     // notfound | error 404
     {

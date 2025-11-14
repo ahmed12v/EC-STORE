@@ -5,10 +5,12 @@ import { HomeService } from '../../../core/services/home/home';
 import { Proud } from '../../../core/interfaces/components/product';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { tap } from 'rxjs';
+import { ScrollRevealDirective } from '../../../shared/directives/animationScrool';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-home',
-  imports: [HomeSliderOne , GategoryHomeSlider],
+  imports: [HomeSliderOne , GategoryHomeSlider , ScrollRevealDirective  , RouterLink],
   templateUrl: './home.html',
   styleUrl: './home.css',
 })
@@ -20,7 +22,7 @@ export class Home implements OnInit{
   _injector=inject(Injector)
   loadSpinner=signal(false)
   allProuduct=signal<Proud[]>([])
-
+  
  getAllProuduct() {
   this.loadSpinner.set(true);
 

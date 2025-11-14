@@ -1,0 +1,52 @@
+.produc-detials-section{
+    padding-top: 65px;
+}
+.detials-photo img{
+ height: 500px;
+}
+.detils-items h1{
+    color: var(--main-color);
+    font-weight: 700;
+}
+.item-describ{
+    font-size: 20px;
+    font-weight: 500;
+    color: black;
+}
+.price{
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--main-color);
+}
+.rating{
+     font-size: 20px;
+    font-weight: 500;
+    color: black;
+}
+.ratin-icon{
+    color: var(--rating-color);
+}
+.Quantity{
+    font-size: 20px;
+    font-weight: 500;
+    color: black;
+}
+.add-btn{
+    background-color: var(--main-color);
+    border: 1px solid var(--main-color);
+    color: white;
+    padding: 7px 0;
+    border-radius: 5px;
+    transition: all .5s;
+    font-size: 18px;
+}
+.add-btn:hover{
+    background-color: white;
+    color: var(--main-color);
+   
+}
+@media (max-width:992px) {
+    .detials-photo img{
+ height: 300px;
+}
+}
