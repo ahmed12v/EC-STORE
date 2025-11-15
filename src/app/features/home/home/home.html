@@ -18,8 +18,10 @@
         <div class="row gy-3">
             @for (card of allProuduct().slice(0,10); track $index) {
                 <div class="col-lg-3 col-sm-6" appScrollReveal>
-               <div class="product-item cursor-pointer" [routerLink]="['/prouductDeteils',card._id]">
-                <div class="prouduct-img w-100 d-flex justify-content-center align-items-center">
+                  
+               <div class="product-item cursor-pointer" >
+                <div [routerLink]="['/prouductDeteils',card._id]">
+                   <div class="prouduct-img w-100 d-flex justify-content-center align-items-center">
                   <img [src]="card.imageCover" alt="">
                 </div>
                 <div class="product-items pt-3">
@@ -30,7 +32,15 @@
                  <p class="price"> {{card.price}} EGP </p>
                  <p class="ms-auto text-black"> <span class="ratin-icon"> <i class="fa-solid fa-star"></i> </span> {{card.ratingsAverage}}  </p>
                 </div>
-                <button class="w-100 AddCrt-btn"> <i class="fa-solid fa-cart-shopping"></i>  Add </button>
+                </div>
+                
+                <button (click)="addToCart(card._id)" class="w-100 AddCrt-btn">
+                  @if (addTocartSppiner()) {
+                    <i class="fa-solid fa-spin fa-spinner"></i>
+                  }@else {
+                    <i class="fa-solid fa-cart-shopping"></i>  Add 
+                  }
+                   </button>
                </div>
             </div>
             }

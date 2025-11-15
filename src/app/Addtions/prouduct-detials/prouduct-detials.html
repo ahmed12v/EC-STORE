@@ -19,7 +19,7 @@
             
         </div>
         <div class="col-lg-8 col-md-8">
-           <div class="detils-items ps-3">
+           <div class="detils-items ps-3 pe-3">
              <h1> {{specialPRoduct().data?.title?.slice(0,12)}} </h1>
              <p class="item-describ"> {{specialPRoduct().data?.description}} </p>
              <div class="d-flex align-items-center">
@@ -28,7 +28,13 @@
              </div>
              <p class="Quantity"> Quantity : {{specialPRoduct().data?.quantity}}  </p>
 
-             <button class="add-btn w-100">  <i class="fa-solid fa-cart-shopping"></i>  Add </button>
+             <button (click)="addToCart(specialPRoduct().data?._id)" class="add-btn w-100">
+                 @if (addTocartSppiner()) {
+                    <i class="fa-solid fa-spin fa-spinner"></i>
+                  }@else {
+                    <i class="fa-solid fa-cart-shopping"></i>  Add 
+                  }
+            </button>
            </div>
         </div>
     </div>

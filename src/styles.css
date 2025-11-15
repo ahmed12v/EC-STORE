@@ -26,3 +26,93 @@ body {
 .spin-color{
   color: var(--main-color);
 }
+/* مكان التوست */
+.toast-top-right {
+  position: fixed !important;
+  top: 80px;
+  right: 15px;
+  z-index: 999999;
+}
+
+/* الشكل العام */
+.custom-toast {
+  background-color: #ffffff !important;
+  color: #303030 !important;
+  border-radius: 10px !important;
+  font-weight: 500;
+  font-size: 15px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+  position: relative;
+  padding: 14px 18px 14px 48px !important;
+  display: flex;
+  align-items: center;
+  min-width: 260px;
+}
+
+/* الأيقونة */
+.custom-toast::before {
+  content: " ";
+  font-size: 20px;
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* أيقونة حسب الحالة */
+.custom-toast.toast-success::before {
+  content: "✔";
+  color: #22c55e;
+}
+.custom-toast.toast-error::before {
+  content: "✖";
+  color: #ef4444;
+}
+.custom-toast.toast-info::before {
+  content: "ℹ";
+  color: #0ea5e9;
+}
+.custom-toast.toast-warning::before {
+  content: "⚠";
+  color: #facc15;
+}
+
+/* progress bar */
+.toast-progress {
+  height: 4px !important;
+  bottom: 0;
+  left: 0;
+  border-radius: 0 0 10px 10px;
+  position: absolute !important;
+  opacity: 0.9;
+}
+
+/* ألوان progress */
+.custom-toast.toast-success .toast-progress {
+  background-color: #22c55e !important;
+}
+.custom-toast.toast-error .toast-progress {
+  background-color: #ef4444 !important;
+}
+.custom-toast.toast-info .toast-progress {
+  background-color: #0ea5e9 !important;
+}
+.custom-toast.toast-warning .toast-progress {
+  background-color: #facc15 !important;
+}
+
+/* دخول التوست */
+.custom-toast {
+  animation: fadeSlide .5s ease-out;
+}
+
+@keyframes fadeSlide {
+  from { opacity: 0; transform: translatey(-22px); }
+  to { opacity: 1; transform: translatey(0); }
+}
+
+
+
+
+
+

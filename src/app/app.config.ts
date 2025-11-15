@@ -1,5 +1,6 @@
 import { ANIMATION_MODULE_TYPE,
          ApplicationConfig,
+         importProvidersFrom,
          provideBrowserGlobalErrorListeners,
          provideZoneChangeDetection
        } from '@angular/core';
@@ -11,21 +12,35 @@ import { provideHttpClient, withFetch, withInterceptors } from '@angular/common/
 import { authInterceptor } from './core/interceptors/auth-interceptor';
 import { BrowserAnimationsModule, provideAnimations, provideNoopAnimations } from '@angular/platform-browser/animations';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-
+import { sendTokenWithRequestInterceptor } from './core/interceptors/send-token-with-request-interceptor';
+import { provideToastr, ToastrModule} from 'ngx-toastr';
 export const appConfig: ApplicationConfig = {
   providers: [
     { provide: ANIMATION_MODULE_TYPE, useValue: 'BrowserAnimations' },
-    provideAnimationsAsync(),provideAnimations(),provideNoopAnimations(),
+    provideAnimationsAsync(),
+    provideNoopAnimations(),
+    provideToastr({
+      timeOut: 3000,
+      progressBar: true,
+      closeButton: true,
+      positionClass: 'toast-top-right',
+    }),
     provideBrowserGlobalErrorListeners(),
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes,
-      // withInMemoryScrolling({
-      //   scrollPositionRestoration: 'top', 
-      //   anchorScrolling: 'enabled',
-      // })
+      withInMemoryScrolling({
+        scrollPositionRestoration: 'top', 
+        anchorScrolling: 'enabled',
+      })
     ),
     provideClientHydration(withEventReplay()),
-    provideHttpClient(withFetch() , withInterceptors([authInterceptor])),
-    
+    provideHttpClient(withFetch() , withInterceptors([authInterceptor , sendTokenWithRequestInterceptor])),
+    importProvidersFrom(ToastrModule.forRoot({
+      progressBar: true,
+      progressAnimation: 'decreasing',
+      timeOut:3000,
+      extendedTimeOut:1000,
+      tapToDismiss:true,
+    }))
   ]
 };

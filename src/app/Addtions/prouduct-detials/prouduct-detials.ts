@@ -1,10 +1,15 @@
-import { Component, inject, Injector, OnInit, runInInjectionContext, signal } from '@angular/core';
+import { Component, Inject, inject, Injector, OnInit, PLATFORM_ID, runInInjectionContext, signal } from '@angular/core';
 import { HomeService } from '../../core/services/home/home';
 import { ActivatedRoute } from '@angular/router';
 import { Root2 } from '../../core/interfaces/components/product';
 import { tap } from 'rxjs';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { CarouselModule, OwlOptions } from 'ngx-owl-carousel-o';
+import { ToastrService } from 'ngx-toastr';
+import { CartService } from '../../core/services/components/cart-service';
+import { isPlatformBrowser } from '@angular/common';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Cart } from '../../core/interfaces/components/cart';
 @Component({
   selector: 'app-prouduct-detials',
   imports: [CarouselModule],
@@ -33,6 +38,10 @@ export class ProuductDetials implements OnInit{
   ngOnInit(): void {
     this.getSpecialProduct()
   }
+ constructor(@Inject(PLATFORM_ID) private platformId: Object){}
+_toster=inject(ToastrService)
+addTocartSppiner=signal(false)
+cartService=inject(CartService)
 _homeService=inject(HomeService)
 _ActivateRoute=inject(ActivatedRoute)
 _injector=inject(Injector)
@@ -54,7 +63,7 @@ getSpecialProduct()
           next:res=>{
             this.spinnerLoad.set(false);
             this.specialPRoduct.set(res)
-            console.log('commmmmmme' , this.specialPRoduct());
+            //console.log('commmmmmme' , this.specialPRoduct());
             
           },
           error:err=>{
@@ -67,5 +76,42 @@ getSpecialProduct()
  });
 
 }
+
+//#region addProductToCart
+addForm=new FormGroup({
+  productId:new FormControl('',Validators.required)
+})
+
+addToCart(productId:string | any){
+  this.addForm.patchValue({
+    productId:productId
+  })
+  if(this.addForm.valid){
+    this.addTocartSppiner.set(true)
+    runInInjectionContext(this._injector,()=>{
+      const addSignal =toSignal(this.cartService.addProductTouserCart(this.addForm.value as Cart).pipe(
+        tap({
+             next:res=>{
+             // console.log(res);
+              this.addTocartSppiner.set(false)
+              if(isPlatformBrowser(this.platformId)){
+              this._toster.success(res.message,'', {
+              toastClass: 'custom-toast toast-success',
+               })              
+              }
+              
+              
+             },
+             error:err=>{
+              //console.log(err);
+              this.addTocartSppiner.set(false)
+             }
+        })
+      ))
+    })
+  }
+}
+//#endregion
+
 
 }
