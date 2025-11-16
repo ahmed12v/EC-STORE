@@ -48,7 +48,7 @@ export const routes: Routes = [
              canActivate:[roterGurdGuard]
     },
     {
-        path:'Prouduct',
+        path:'prouduct',
         loadComponent:()=>
             import('./features/components/products/products/products').then((c)=>c.Products),
              canActivate:[roterGurdGuard]

@@ -12,7 +12,7 @@
       <ul class="d-flex gap-3 nav-links fs-5">
         @if (isLogin ==true) {
         <li class="cursor-pointer" routerLink="home" routerLinkActive="active-link"><a>Home</a></li>
-        <li class="cursor-pointer" routerLink="Prouduct" routerLinkActive="active-link"><a>Products</a></li>
+        <li class="cursor-pointer" routerLink="prouduct" routerLinkActive="active-link"><a>Products</a></li>
         <li class="cursor-pointer"><a>Cart</a></li>
         <li class="cursor-pointer"><a>Brand</a></li>
         <li class="cursor-pointer"><a>Categories</a></li>
@@ -55,7 +55,7 @@
       <ul class="menu-links">
         @if (isLogin ==true) {
         <li routerLink="home" routerLinkActive="link-mobile-active" (click)="toggleMenu()">Home</li>
-        <li routerLink="Prouduct" routerLinkActive="link-mobile-active" (click)="toggleMenu()">products</li>
+        <li routerLink="prouduct" routerLinkActive="link-mobile-active" (click)="toggleMenu()">products</li>
         <li routerLinkActive="link-mobile-active" (click)="toggleMenu()">Cart</li>
         <li routerLinkActive="link-mobile-active" (click)="toggleMenu()">Brand</li>
         <li routerLinkActive="link-mobile-active" (click)="toggleMenu()">Categories</li>
