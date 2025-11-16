@@ -31,7 +31,6 @@
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "node_modules/@fortawesome/fontawesome-free/css/all.min.css",
               "src/styles.css"
-              
             ],
             "scripts": [
               "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
@@ -66,6 +65,35 @@
           },
           "defaultConfiguration": "production"
         },
+        "server": {
+          "builder": "@angular-devkit/build-angular:server",
+          "options": {
+            "outputPath": "dist/EC-Store/server",
+            "main": "src/main.server.ts",
+            "tsConfig": "tsconfig.server.json"
+          },
+          "configurations": {
+            "development": {
+              "sourceMap": true,
+              "optimization": false
+            },
+            "production": {
+              "outputHashing": "all",
+              "sourceMap": false
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "prerender": {
+          "builder": "@angular-devkit/build-angular:prerender",
+          "options": {
+            "browserTarget": "EC-Store:build:production",
+            "serverTarget": "EC-Store:server:production"
+          },
+          "configurations": {
+            "production": {}
+          }
+        },
         "serve": {
           "builder": "@angular/build:dev-server",
           "configurations": {
@@ -77,6 +105,13 @@
             }
           },
           "defaultConfiguration": "development"
+        },
+        "serve-ssr": {
+          "builder": "@angular-devkit/build-angular:server",
+          "options": {
+            "browserTarget": "EC-Store:build",
+            "serverTarget": "EC-Store:server"
+          }
         },
         "extract-i18n": {
           "builder": "@angular/build:extract-i18n"
