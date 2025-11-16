@@ -13,7 +13,7 @@
         @if (isLogin ==true) {
         <li class="cursor-pointer" routerLink="home" routerLinkActive="active-link"><a>Home</a></li>
         <li class="cursor-pointer" routerLink="prouduct" routerLinkActive="active-link"><a>Products</a></li>
-        <li class="cursor-pointer"><a>Cart</a></li>
+        <li class="cursor-pointer" routerLink="cart" routerLinkActive="active-link"><a>Cart</a></li>
         <li class="cursor-pointer"><a>Brand</a></li>
         <li class="cursor-pointer"><a>Categories</a></li>
         <li class="cursor-pointer"><a>Favorites</a></li>
@@ -29,7 +29,7 @@
           }
           
           @if (isLogin ==true) {
-          <li class="cursor-pointer"><a> <i class="fa-solid fa-cart-shopping fs-5"></i> </a></li>
+          <li class="cursor-pointer"><a routerLink="cart"> <i class="fa-solid fa-cart-shopping fs-5"></i> </a></li>
           <li class="cursor-pointer"><a> <i class="fa-brands fa-facebook fs-5"></i> </a></li>
           <li class="cursor-pointer"><a> <i class="fa-brands fa-instagram fs-5"></i> </a></li>
           <li class="cursor-pointer me-4"><a> <i class="fa-brands fa-twitter fs-5"></i> </a></li>
@@ -56,7 +56,7 @@
         @if (isLogin ==true) {
         <li routerLink="home" routerLinkActive="link-mobile-active" (click)="toggleMenu()">Home</li>
         <li routerLink="prouduct" routerLinkActive="link-mobile-active" (click)="toggleMenu()">products</li>
-        <li routerLinkActive="link-mobile-active" (click)="toggleMenu()">Cart</li>
+        <li routerLinkActive="link-mobile-active" routerLink="cart" (click)="toggleMenu()">Cart</li>
         <li routerLinkActive="link-mobile-active" (click)="toggleMenu()">Brand</li>
         <li routerLinkActive="link-mobile-active" (click)="toggleMenu()">Categories</li>
         <li routerLinkActive="link-mobile-active" (click)="toggleMenu()">Favorites</li>
@@ -70,7 +70,7 @@
           <a (click)="toggleMenu()" routerLink="login" routerLinkActive="active-link">Login</a>
         }@else {
          <div class="d-flex gap-2">
-          <a> <i class="fa-solid fa-cart-shopping fs-5"></i> </a>
+          <a routerLink="cart"> <i class="fa-solid fa-cart-shopping fs-5"></i> </a>
           <a> <i class="fa-brands fa-facebook fs-5"></i> </a>
           <a> <i class="fa-brands fa-instagram fs-5"></i> </a>
           <a> <i class="fa-brands fa-twitter fs-5"></i> </a>

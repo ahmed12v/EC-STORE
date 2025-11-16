@@ -53,6 +53,12 @@ export const routes: Routes = [
             import('./features/components/products/products/products').then((c)=>c.Products),
              canActivate:[roterGurdGuard]
     },
+    {
+        path:'cart',
+        loadComponent:()=>
+            import('./features/components/cart/cart/cart').then((c)=>c.Cart),
+             canActivate:[roterGurdGuard]
+    },
     
     // notfound | error 404
     {

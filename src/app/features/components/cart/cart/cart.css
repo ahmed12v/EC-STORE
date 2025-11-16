@@ -1,0 +1,120 @@
+.cart-header-section{
+    padding-top: 65px;
+}
+
+.imge-contend img{
+width: 250px;
+height: 250px;
+}
+.cart-detials{
+    border: 1px var(--main-color) solid;
+    padding: 10px;
+}
+.check-btn{
+    border: 1px solid var(--main-color);
+    color: var(--main-color);
+    background-color: transparent;
+    font-size: 18px;
+    padding: 5px 0;
+    border-radius: 8px;
+    transition: all .5s;
+    font-weight: 600;
+}
+.check-btn:hover{
+   background-color: var(--main-color);
+   color: white;
+}
+.clearAll-btn{
+        border: 1px solid var(--valistion-coloe);
+    color: var(--valistion-coloe);
+    background-color: transparent;
+    font-size: 18px;
+    padding: 5px 0;
+    border-radius: 8px;
+    transition: all .5s;
+    font-weight: 600;
+}
+.clearAll-btn:hover{
+    background-color: var(--valistion-coloe);
+    color: white;
+}
+.width-photo img{
+  width: 100px;
+  height: 130px;
+}
+.product-detials p{
+ font-size: 18px !important;
+}
+.remove-btn{
+border: 1px solid var(--valistion-coloe);
+background-color: transparent;
+padding: 6px 20px;
+border-radius: 8px;
+color: var(--valistion-coloe);
+font-size: 17px;
+font-weight: 600;
+transition: all .5s;
+}
+.remove-btn:hover{
+    background-color: var(--valistion-coloe);
+    color: white;
+}
+.plus-btn{
+    background-color: transparent;
+    border: 1px solid var(--main-color);
+    border-radius: 5px;
+    padding: 7px 15px;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--main-color);
+    transition: all .5s;
+}
+.plus-btn:hover{
+    background-color:var(--main-color) ;
+    color: white;
+}
+.mins-btn{
+    background-color: transparent;
+    border: 1px solid var(--valistion-coloe);
+    border-radius: 5px;
+    padding: 7px 15px;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--valistion-coloe);
+    transition: all .5s;
+}
+.mins-btn:hover{
+    background-color:var(--valistion-coloe) ;
+    color: white;
+}
+.quantity p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    font-weight: 600;
+}
+.details{
+    border-bottom: 1px solid rgb(180, 176, 176) ;
+}
+.details:hover{
+    box-shadow: var(--shadow);
+}
+.plus-btn:disabled ,.mins-btn:disabled{
+    cursor:not-allowed ;
+    opacity: 0.6;
+}
+@media (max-width:992px) {
+    .row .image-width{
+        display: none !important;
+    }
+    .width-photo{
+        margin-bottom:15px ;
+    }
+    .width-photo img{
+     width: 200px !important;
+     height: 250px;
+    }
+}

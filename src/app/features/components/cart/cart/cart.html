@@ -1,0 +1,59 @@
+<section class="cart-header-section">
+ <div class="container mt-5 mb-5 text-center">
+    <h1 class="mb-5 mt-5 fs-3 fw-bold text-black">
+        Welcome In Your Cart <span> <i class="fa-solid fa-cart-arrow-down spin-color"></i> </span>
+    </h1>
+  <div class="row mt-5">
+    <div class="col-md-6 image-width d-flex justify-content-center align-items-center ">
+    <div class="imge-contend">
+      <img src="/shopCart.png" alt="shop cart" >
+    </div>
+    </div>
+    <div class="col-md-6  d-flex justify-content-center align-items-center ">
+     <div class="cart-detials text-start w-auto p-5">
+            <h2 class="text-center fs-3 text-black fw-bold mb-4"> Orders </h2>
+            <p class="fs-5 fw-bold"> Products : <span class="spin-color"> {{userCartCome()?.numOfCartItems}} items  </span></p>
+            <p class="fs-5 fw-bold"> Total Price : <span class="spin-color">
+              {{userCartCome()?.data?.totalCartPrice}} EGP </span></p>
+           
+             <button class="w-100 mb-3 check-btn"> Check Out </button>
+            <button class="w-100 clearAll-btn">Clear All Product</button>
+            </div>
+            
+    </div>
+  </div>
+ </div>
+
+<div class="container mt-5">
+  @for (item of userCartCome()?.data?.products; track $index) {
+    <div class="row mb-4 details  p-2 ">
+  <div class="col-md-1 ">
+      <div class="width-photo  d-flex justify-content-center align-items-center">
+         <img [src]="item.product.imageCover" alt="">
+      </div>
+  </div>
+  <div class="col-md-11 ps-4 d-flex align-items-center pe-4">
+      <div class="product-detials">
+        <p class="fs-6 fw-bold spin-color"> {{item.product.title.slice(0,12)}} </p>
+        <p class="fs-6 fw-bold"> price : <span class="spin-color"> {{item.price}} EGP </span>  </p>
+        <button class="remove-btn">
+          Remove <i class="fa-solid fa-trash"></i>
+        </button>
+      </div>
+      <div class="ms-auto d-flex quantity align-items-center gap-3">
+        <button class="plus-btn"
+        [disabled]="waitUpdate()"
+         (click)="updateCountProduct(item.product._id , item.count+1)"> + </button>
+        <p> {{item.count}} </p>
+        <button class="mins-btn"
+        [disabled]="waitUpdate()"
+         (click)="updateCountProduct(item.product._id , item.count-1)"> - </button>
+      </div>
+  </div>
+ </div>
+  }
+ 
+ 
+</div>
+
+</section>
