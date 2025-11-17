@@ -11,6 +11,8 @@ import { FormControl, FormGroup, FormsModule, Validators } from "@angular/forms"
 import { ToastrService } from 'ngx-toastr';
 import { CartService } from '../../../../core/services/components/cart-service';
 import { Cart } from '../../../../core/interfaces/components/cart';
+import { WishlistService } from '../../../../core/services/components/wishlist';
+import { bodyWish } from '../../../../core/interfaces/components/wishlist';
 
 @Component({
   selector: 'app-products',
@@ -31,7 +33,9 @@ ngOnInit(): void {
   _injector=inject(Injector)
   loadSpinner=signal(false)
   allProuduct=signal<Proud[]>([])
+  wishServices=inject(WishlistService)
   
+  //#region getProduct
  getAllProuduct() {
   this.loadSpinner.set(true);
 
@@ -54,7 +58,9 @@ ngOnInit(): void {
   });
 }
 
-//#region addProductToCart
+//#endregion
+
+  //#region addProductToCart
 addForm=new FormGroup({
   productId:new FormControl('',Validators.required)
 })
@@ -89,6 +95,27 @@ addToCart(productId:string){
   }
 }
 //#endregion
-
+  
+ //#region addtoWish
+ productIdForm =new FormGroup({
+   productId: new FormControl('',Validators.required)
+ })
+ addtoWish(productId:string|null){
+    this.productIdForm.patchValue({
+      productId:productId
+    })
+    if(this.productIdForm.valid){
+      runInInjectionContext(this._injector,()=>{
+        const addSignal = toSignal(this.wishServices.addTowishList(this.productIdForm.value as bodyWish).pipe(
+          tap({
+            next:res=>{
+              this._toster.success('Product Added To Wishlist')
+            }
+          })
+        ))
+      })
+    }
+ }
+ //#endregion
 
 }

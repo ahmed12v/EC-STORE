@@ -26,25 +26,33 @@ export class Wishlist implements OnInit{
   injector=inject(Injector)
   allwishes=signal<WishlistInterFace|null>(null)
   addTocartSppiner=signal(false)
+  wishempty=signal(false)
+  loadSpinner=signal(false)
 
+//#region wishList
   getWishes(){
+    this.loadSpinner.set(true)
     runInInjectionContext(this.injector,()=>{
       const wishesSignal = toSignal(this.wishServices.getWishList().pipe(
         tap({
           next:res=>{
             this.allwishes.set(res)
             console.log(res);
+            if(res.count === 0){this.wishempty.set(true)}
+            this.loadSpinner.set(false)            //console.log(res.count);
             
           },
           error:err=>{
             console.log(err);
-            
+            this.loadSpinner.set(false)
           }
         })
       ))
     })
   }
+//#endregion
 
+//#region addToCart
   addForm=new FormGroup({
   productId:new FormControl('',Validators.required)
 })
@@ -60,24 +68,36 @@ addToCart(productId:string){
         tap({
              next:res=>{
              // console.log(res);
-              this.addTocartSppiner.set(false)
-             
+             this.addTocartSppiner.set(false)
               this._toaster.success(res.message,'', {
-              toastClass: 'custom-toast toast-success',
-               })              
-              
-              
-              
-             },
-             error:err=>{
-              //console.log(err);
+              toastClass: 'custom-toast toast-success',})
+            },
+            error:err=>{
               this.addTocartSppiner.set(false)
-             }
-        })
+            }
+             
+            
+         })
       ))
     })
   }
 }
+//#endregion
+
+//#region removeFromWishlist
+  removeFromWishlist(productId:string){
+    
+    runInInjectionContext(this.injector,()=>{
+      const removeSignal = toSignal(this.wishServices.remove(productId).pipe(
+        tap({next:res=>{
+          this._toaster.success(' product removed ')
+          this.getWishes()
+          
+        }
+      })
+      ))
+    })
+  }
 //#endregion
 
 }

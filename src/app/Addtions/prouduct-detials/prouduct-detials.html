@@ -1,5 +1,9 @@
-
-<section class="produc-detials-section">
+@if (spinnerLoad()) {
+  <div class="d-flex justify-content-center align-items-center vh-100 "> 
+     <i class="fa-solid fa-spin fa-spinner fs-4 spin-color " > </i>
+   </div> 
+}@else {
+  <section class="produc-detials-section">
   <div class="container pt-4 pb-3">
     @if (specialPRoduct()) {
         <div class="row d-flex align-items-center gy-4">
@@ -45,4 +49,4 @@
     
     
   </div>
-</section>
+</section>}
