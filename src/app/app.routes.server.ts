@@ -19,6 +19,10 @@ export const serverRoutes: ServerRoute[] = [
     renderMode: RenderMode.Server
   },
   {
+    path: 'wishlist',
+    renderMode: RenderMode.Server
+  },
+  {
     path: 'prouduct',
     renderMode: RenderMode.Server
   },

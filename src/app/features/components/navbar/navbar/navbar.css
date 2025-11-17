@@ -211,14 +211,21 @@ color: #d80303 ;
 .shop-mobile{
   position: relative;
 }
-number-item-span-mobile{
+.rela-heart{
+  position: relative;
+}
+
+.heart-icon{
+  position: relative;
+}
+.number-item-wishlist{
   position: absolute;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: #d80303;
-  width: 20px;
-  height: 20px;
+  width: 24px;
+  height: 24px;
   border-radius: 100%;
   text-align: center;
   color: wheat;

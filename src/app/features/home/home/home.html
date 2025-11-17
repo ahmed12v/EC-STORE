@@ -19,8 +19,8 @@
             @for (card of allProuduct().slice(0,10); track $index) {
                 <div class="col-lg-3 col-sm-6" appScrollReveal>
                   
-               <div class="product-item cursor-pointer" >
-                <div [routerLink]="['/prouductDeteils',card._id]">
+               <div class="product-item " >
+                <div [routerLink]="['/prouductDeteils',card._id]" class="cursor-pointer">
                    <div class="prouduct-img w-100 d-flex justify-content-center align-items-center">
                   <img [src]="card.imageCover" alt="">
                 </div>
@@ -28,11 +28,13 @@
                  <p class="cato-name p-0 m-0"> {{card.category.name}} </p>
                  <p class="proud-name p-0 mt-1"> {{card.title.slice(0,12)}} </p>
                 </div>
-                <div class="price-rating d-flex mt-1">
-                 <p class="price"> {{card.price}} EGP </p>
-                 <p class="ms-auto text-black"> <span class="ratin-icon"> <i class="fa-solid fa-star"></i> </span> {{card.ratingsAverage}}  </p>
                 </div>
+                <div class="price-rating d-flex mt-1 align-items-center text-center ">
+                 <p class="price "> {{card.price}} EGP </p>
+                 <p class="add-wish-icon fs-4 cursor-pointer"> <i class="fa-solid fa-heart"></i> </p>
+                 <p class=" text-black"> <span class="ratin-icon"> <i class="fa-solid fa-star"></i> </span> {{card.ratingsAverage}}  </p>
                 </div>
+                
                 
                 <button [disabled]="addTocartSppiner()" (click)="addToCart(card._id)" class="w-100 AddCrt-btn">
                   @if (addTocartSppiner()) {

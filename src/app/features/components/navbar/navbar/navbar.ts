@@ -4,6 +4,7 @@ import { Loginservice } from '../../../../core/services/Auth/login';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { map, tap } from 'rxjs';
 import { CartService } from '../../../../core/services/components/cart-service';
+import { WishlistService } from '../../../../core/services/components/wishlist';
 
 @Component({
   selector: 'app-navbar',
@@ -13,10 +14,17 @@ import { CartService } from '../../../../core/services/components/cart-service';
 })
 export class Navbar implements OnInit{
   cartCount=signal(0)
-    constructor(private _Router:Router , private _Loginservice:Loginservice , private CartService:CartService){
+  wishCount=signal(0)
+    constructor(private _Router:Router ,
+       private _Loginservice:Loginservice ,
+        private CartService:CartService,
+        private _wishlistservice:WishlistService
+      ){
       effect(()=>{
-        this.cartCount.set(this.CartService.numberOfitmes())
+        this.cartCount.set(this.CartService.numberOfitmes());
+        this.wishCount.set(this._wishlistservice.numberOfitmes())
       })
+
     }
 
     isMenuOpen = false;

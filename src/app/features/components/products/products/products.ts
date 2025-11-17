@@ -24,8 +24,8 @@ ngOnInit(): void {
   }
   constructor(@Inject(PLATFORM_ID) private platformId: Object){}
   _toster=inject(ToastrService)
-addTocartSppiner=signal(false)
-cartService=inject(CartService)
+  addTocartSppiner=signal(false)
+  cartService=inject(CartService)
   userWord=signal('')
   homeService=inject(HomeService)
   _injector=inject(Injector)

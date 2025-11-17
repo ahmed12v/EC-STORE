@@ -1,3 +1,4 @@
+import { Wishlist } from './features/components/wishlist/wishlist/wishlist';
 
 import { Routes } from '@angular/router';
 import { roterGurdGuard } from './core/gurds/roter-gurd-guard';
@@ -51,6 +52,12 @@ export const routes: Routes = [
         path:'prouduct',
         loadComponent:()=>
             import('./features/components/products/products/products').then((c)=>c.Products),
+             canActivate:[roterGurdGuard]
+    },
+    {
+        path:'wishlist',
+        loadComponent:()=>
+            import('./features/components/wishlist/wishlist/wishlist').then((c)=>c.Wishlist),
              canActivate:[roterGurdGuard]
     },
     {

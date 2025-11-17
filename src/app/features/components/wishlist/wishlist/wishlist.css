@@ -1,22 +1,6 @@
 .allproduct-section{
     padding-top: 65px;
 }
-.input-serch{
-    padding: 10px 15px;
-    border-radius: 30px;
-}
-.input-serch{
-    border: 1.5px solid var(--main-color);
-}
-.input-serch:focus{
-    outline: none;
-    border-color: var(--main-color);
-  box-shadow: 0 0 8px rgba(25, 135, 84, 0.3);
-}
-h1{
-    color: var(--main-color);
-    font-weight: 600;
-}
 .price{
     color: var(--main-color);
 }
@@ -39,7 +23,7 @@ h1{
     justify-content: space-between !important;
 }
 .add-wish-icon{
-    color: var(--valistion-coloe);
+    color: rgb(34, 34, 34);
 }
 .product-item{
     padding: 20px 20px;
