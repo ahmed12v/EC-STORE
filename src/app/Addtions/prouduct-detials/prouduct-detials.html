@@ -26,9 +26,9 @@
              <p class="price"> {{specialPRoduct().data?.price}} EGP </p>
                  <p class="rating ms-auto text-black"> <span class="ratin-icon"> <i class="fa-solid fa-star"></i> </span> {{specialPRoduct().data?.ratingsAverage}} </p>
              </div>
-             <p class="Quantity"> Quantity : {{specialPRoduct().data?.quantity}}  </p>
+             <p class="Quantity"> Stock in : {{specialPRoduct().data?.quantity}}  </p>
 
-             <button (click)="addToCart(specialPRoduct().data?._id)" class="add-btn w-100">
+             <button [disabled]="addTocartSppiner()" (click)="addToCart(specialPRoduct().data?._id)" class="add-btn w-100">
                  @if (addTocartSppiner()) {
                     <i class="fa-solid fa-spin fa-spinner"></i>
                   }@else {

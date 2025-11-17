@@ -1,4 +1,9 @@
-<section class="cart-header-section">
+@if (loadSpin()) {
+  <div class="d-flex vh-100 justify-content-center align-items-center ">
+    <i class="fa-solid fa-spin fa-spinner spin-color fs-4"></i>
+  </div>
+}@else {
+  <section class="cart-header-section">
  <div class="container mt-5 mb-5 text-center">
     <h1 class="mb-5 mt-5 fs-3 fw-bold text-black">
         Welcome In Your Cart <span> <i class="fa-solid fa-cart-arrow-down spin-color"></i> </span>
@@ -17,7 +22,14 @@
               {{userCartCome()?.data?.totalCartPrice}} EGP </span></p>
            
              <button class="w-100 mb-3 check-btn"> Check Out </button>
-            <button class="w-100 clearAll-btn">Clear All Product</button>
+            <button class="w-100 clearAll-btn" (click)="ClearAll()" [disabled]="clearUsercartSoin()">
+              @if(clearUsercartSoin()){
+                <i class="fa-spin fa-spinner fa-solid"></i>
+              }@else{
+                   Clear All Product
+              }
+              
+            </button>
             </div>
             
     </div>
@@ -36,8 +48,12 @@
       <div class="product-detials">
         <p class="fs-6 fw-bold spin-color"> {{item.product.title.slice(0,12)}} </p>
         <p class="fs-6 fw-bold"> price : <span class="spin-color"> {{item.price}} EGP </span>  </p>
-        <button class="remove-btn">
-          Remove <i class="fa-solid fa-trash"></i>
+        <button class="remove-btn" (click)="removeProduct(item.product._id)" [disabled]="removeproductSpin()">
+          @if(removeproductSpin()){
+            <i class="fa-spin fa-spinner fa-solid"></i>
+          }@else{
+           Remove <i class="fa-solid fa-trash"></i>
+          }
         </button>
       </div>
       <div class="ms-auto d-flex quantity align-items-center gap-3">
@@ -57,3 +73,4 @@
 </div>
 
 </section>
+}

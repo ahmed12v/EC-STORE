@@ -41,6 +41,7 @@ export const appConfig: ApplicationConfig = {
       timeOut:3000,
       extendedTimeOut:1000,
       tapToDismiss:true,
+      toastClass: 'custom-toast toast-success'
     }))
   ]
 };

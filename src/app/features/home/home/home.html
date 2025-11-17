@@ -34,7 +34,7 @@
                 </div>
                 </div>
                 
-                <button (click)="addToCart(card._id)" class="w-100 AddCrt-btn">
+                <button [disabled]="addTocartSppiner()" (click)="addToCart(card._id)" class="w-100 AddCrt-btn">
                   @if (addTocartSppiner()) {
                     <i class="fa-solid fa-spin fa-spinner"></i>
                   }@else {

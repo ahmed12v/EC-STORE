@@ -78,7 +78,7 @@
   transform: translateX(-50%) translateY(5px);
 }
 
-/* ✅ منيو الموبايل */
+
 .mobile-menu {
   position: fixed;
   inset: 0;
@@ -188,4 +188,41 @@ color: #d80303 ;
   .toggle-btn {
     display: block;
   }
+}
+
+.shop-icon{
+  position: relative;
+}
+.number-item-span{
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #d80303;
+  width: 24px;
+  height: 24px;
+  border-radius: 100%;
+  text-align: center;
+  color: wheat;
+  font-size: 14px;
+  right: -5px;
+  top: -18px;
+}
+.shop-mobile{
+  position: relative;
+}
+number-item-span-mobile{
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #d80303;
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+  text-align: center;
+  color: wheat;
+  font-size: 14px;
+  right: -5px;
+  top: -18px;
 }

@@ -23,6 +23,8 @@ _injectoer=inject(Injector);
 userCartCome=signal<Root | null>(null);
 _toaster=inject(ToastrService)
 waitUpdate=signal(false)
+removeproductSpin=signal(false)
+clearUsercartSoin=signal(false)
 //#endregion
 
 //#region getUserCart
@@ -82,5 +84,51 @@ updateCountProduct(productId:string,count:any){
 }
 //#endregion
 
+
+//#region remove product
+    removeProduct(productId:string){
+      this.removeproductSpin.set(true)
+      runInInjectionContext(this._injectoer,()=>{
+        const removSignal = toSignal(this._cartServise.removeProductFrpmCart(productId).pipe(
+          tap({
+            next:res=>{
+               console.log(res);
+               this.removeproductSpin.set(false)
+               this._toaster.success('product removed' )
+               this.userCart()
+            },
+            error:err=>{
+                  console.log(err);
+                  this.removeproductSpin.set(false)
+                  this._toaster.error('error in removed')
+            }
+          })
+        ))
+      })
+    }
+//#endregion
+
+//#region clearAll
+ClearAll(){
+      this.clearUsercartSoin.set(true)
+      runInInjectionContext(this._injectoer,()=>{
+        const clearSignal = toSignal(this._cartServise.clearUserCart().pipe(
+          tap({
+            next:res=>{
+               console.log(res);
+               this.clearUsercartSoin.set(false)
+               this._toaster.success('Your Cart empty now' )
+               this.userCart()
+            },
+            error:err=>{
+                  console.log(err);
+                  this.clearUsercartSoin.set(false)
+                  this._toaster.error('error in cleared')
+            }
+          })
+        ))
+      })
+    }
+//#endregion
 
 }

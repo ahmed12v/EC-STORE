@@ -3,6 +3,7 @@ import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { Loginservice } from '../../../../core/services/Auth/login';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { map, tap } from 'rxjs';
+import { CartService } from '../../../../core/services/components/cart-service';
 
 @Component({
   selector: 'app-navbar',
@@ -11,7 +12,12 @@ import { map, tap } from 'rxjs';
   styleUrl: './navbar.css',
 })
 export class Navbar implements OnInit{
-    constructor(private _Router:Router , private _Loginservice:Loginservice ){}
+  cartCount=signal(0)
+    constructor(private _Router:Router , private _Loginservice:Loginservice , private CartService:CartService){
+      effect(()=>{
+        this.cartCount.set(this.CartService.numberOfitmes())
+      })
+    }
 
     isMenuOpen = false;
     isLogin = false;

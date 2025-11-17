@@ -29,10 +29,13 @@
           }
           
           @if (isLogin ==true) {
-          <li class="cursor-pointer"><a routerLink="cart"> <i class="fa-solid fa-cart-shopping fs-5"></i> </a></li>
-          <li class="cursor-pointer"><a> <i class="fa-brands fa-facebook fs-5"></i> </a></li>
-          <li class="cursor-pointer"><a> <i class="fa-brands fa-instagram fs-5"></i> </a></li>
-          <li class="cursor-pointer me-4"><a> <i class="fa-brands fa-twitter fs-5"></i> </a></li>
+          <li class="cursor-pointer shop-icon"><a routerLink="cart"> <i class="fa-solid fa-cart-shopping  fs-4"></i> </a> 
+            <span class="number-item-span fw-bold">
+                  {{cartCount()}}
+           </span> </li>
+          <li class="cursor-pointer"><a> <i class="fa-brands fa-facebook fs-4"></i> </a></li>
+          <li class="cursor-pointer"><a> <i class="fa-brands fa-instagram fs-4"></i> </a></li>
+          <li class="cursor-pointer me-4"><a> <i class="fa-brands fa-twitter fs-4"></i> </a></li>
           <li class="logout-container">
               <a (click)="logout()"><i class="fa-solid fa-arrow-right-to-bracket"></i></a>
               <span class="logout-text" >Logout</span>
@@ -70,12 +73,17 @@
           <a (click)="toggleMenu()" routerLink="login" routerLinkActive="active-link">Login</a>
         }@else {
          <div class="d-flex gap-2">
-          <a routerLink="cart"> <i class="fa-solid fa-cart-shopping fs-5"></i> </a>
-          <a> <i class="fa-brands fa-facebook fs-5"></i> </a>
-          <a> <i class="fa-brands fa-instagram fs-5"></i> </a>
-          <a> <i class="fa-brands fa-twitter fs-5"></i> </a>
+          <a (click)="toggleMenu()" routerLink="cart" class="shop-mobile"> 
+             <i class="fa-solid fa-cart-shopping fs-4"></i>
+          <span class="number-item-span fw-bold">
+                  {{cartCount()}}
+           </span>
+          </a>
+          <a> <i class="fa-brands fa-facebook fs-4"></i> </a>
+          <a> <i class="fa-brands fa-instagram fs-4"></i> </a>
+          <a> <i class="fa-brands fa-twitter fs-4"></i> </a>
          </div>
-          <a (click)="toggleMenu();logout()"><i class="fs-5 fa-solid fa-arrow-right-to-bracket phone-logout"></i></a>
+          <a (click)="toggleMenu();logout()"><i class="fs-4 fa-solid fa-arrow-right-to-bracket phone-logout"></i></a>
 
         }
         
