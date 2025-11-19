@@ -60,3 +60,8 @@ export interface Brand {
 export interface quantity{
     count:string
 }
+export interface checkOutForm{
+  details:string
+  phone:string
+  city:string
+}

@@ -1,8 +1,4 @@
-<!-- @if (loadSpin()) {
-  <div class="d-flex vh-100 justify-content-center align-items-center ">
-    <i class="fa-solid fa-spin fa-spinner spin-color fs-4"></i>
-  </div>
-}@else { -->
+
   <section class="cart-header-section">
  <div class="container mt-5 mb-5 text-center">
     <h1 class="mb-5 mt-5 fs-3 fw-bold text-black">
@@ -16,12 +12,17 @@
     </div>
     <div class="col-md-6  d-flex justify-content-center align-items-center ">
      <div class="cart-detials text-start w-auto p-5">
+             @if (loadSpin()) {
+             <div class="d-flex h-100 justify-content-center align-items-center ">
+              <i class="fa-solid fa-spin fa-spinner spin-color fs-5"></i>
+             </div>
+             }@else {
             <h2 class="text-center fs-3 text-black fw-bold mb-4"> Orders </h2>
             <p class="fs-5 fw-bold"> Products : <span class="spin-color"> {{userCartCome()?.numOfCartItems}} items  </span></p>
             <p class="fs-5 fw-bold"> Total Price : <span class="spin-color">
               {{userCartCome()?.data?.totalCartPrice}} EGP </span></p>
            
-             <button class="w-100 mb-3 check-btn"> Check Out </button>
+             <button class="w-100 mb-3 check-btn" [routerLink]="['/checkOut',userCartCome()?.cartId]"> Check Out </button>
             <button class="w-100 clearAll-btn" (click)="ClearAll()" [disabled]="clearUsercartSoin()">
               @if(clearUsercartSoin()){
                 <i class="fa-spin fa-spinner fa-solid"></i>
@@ -30,6 +31,7 @@
               }
               
             </button>
+          }
             </div>
             
     </div>

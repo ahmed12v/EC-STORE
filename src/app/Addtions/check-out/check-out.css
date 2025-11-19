@@ -1,0 +1,71 @@
+.checkOut-section{
+    padding-top: 70px;
+}
+.p-credit{
+    font-size: 18px;
+    font-weight: 500;
+}
+.form-check{
+    padding: 45px;  
+    width: 100%;
+    box-shadow: var(--shadow);
+    border-radius: 15px;
+}
+.form-check label{
+    font-size: 18px;
+    font-weight: 500;
+    color: black;
+}
+.form-check input{
+    width: 100%;
+    padding: 10px 15px;
+    font-size: 18px;
+    border-radius: 10px;
+    outline: none;
+    border: 2px var(--light-color) solid; 
+}
+.form-check input:focus{
+    border: 1px solid rgb(147, 147, 147);
+}
+.ceridet-btn{
+    padding: 8px 15px;
+    background-color: var(--main-color);
+    border: 1px var(--main-color) solid;
+    color: white;
+    font-size: 18px;
+    font-weight: 500;
+    border-radius: 5px;
+    transition: all .5s;
+}
+.ceridet-btn:hover{
+    background-color: transparent;
+    color: var(--main-color);
+}
+.ceridet-btn:disabled{
+    opacity: .6;
+    cursor: not-allowed;
+}
+.credit-Photo{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+input.is-invalid {
+  border: 1px solid #dc3545 !important;
+  box-shadow: 0 0 8px rgba(162, 4, 4, 0.3) !important;
+}
+
+input.is-valid {
+  border: 1px solid #28a745 !important;
+}
+
+.small {
+  font-size: 0.85rem;
+}
+@media (max-width : 992px) {
+    .container{
+        padding-left: 0px !important;
+        padding-right: 0px !important;
+    }
+}

@@ -1,0 +1,106 @@
+<section class="checkOut-section pe-5 ps-5">
+ <div class="container mt-5 mb-5 ps-5 pe-5">
+    <p class="ms-3 p-credit  text-black"> Credit Payment </p>
+    <hr>
+    <div class="row ">
+        <div class="col-md-6 mt-4">
+            <div class="form-check">
+              <form [formGroup]="shopingForm" (ngSubmit)="CheckoutNow()">
+                <div class="mb-4">
+                <label for="phone" class="mb-3 d-block">
+                     Phone :
+                     </label>
+                <input type="tel" id="phone"
+                required
+                formControlName="phone"
+                 placeholder="Enter Your Phone"
+                 [ngClass]="{
+                  'is-invalid':shopingForm.get('phone')?.invalid && shopingForm.get('phone')?.touched ,
+                  'is-valid':shopingForm.get('phone')?.valid && shopingForm.get('phone')?.touched
+                 }"
+                 >
+                 @if (shopingForm.get('phone')?.errors && shopingForm.get('phone')?.touched) {
+                  <div class="text-danger mt-1 small">
+                          @if (shopingForm.get('phone')?.errors?.['required']) {
+                               <span>phone is required.</span>
+                                }
+                          @if (shopingForm.get('phone')?.errors?.['pattern']) {
+                                <span> Please Enter Egyption Phone Number.</span>
+                                 }
+                           
+                    </div>
+                 }
+                </div>
+
+                <div class="mb-4">
+                <label for="city" class="mb-3 d-block">
+                     City / Area :
+                     </label>
+                <input type="text" id="city"
+                required
+                formControlName="city"
+                 placeholder="City / Area"
+                  [ngClass]="{
+                  'is-invalid':shopingForm.get('city')?.invalid && shopingForm.get('city')?.touched ,
+                  'is-valid':shopingForm.get('city')?.valid && shopingForm.get('city')?.touched
+                 }"
+                 >
+                 @if (shopingForm.get('city')?.errors && shopingForm.get('city')?.touched) {
+                  <div class="text-danger mt-1 small">
+                          @if (shopingForm.get('city')?.errors?.['required']) {
+                               <span>City / Area is required.</span>
+                                }
+                          @if (shopingForm.get('city')?.errors?.['minlength']) {
+                                <span> Minimum 3 characters required..</span>
+                                 }
+                           
+                    </div>
+                 }
+                </div>
+
+                <div class="mb-4">
+                <label for="address" class="mb-3 d-block">
+                     Address Details :
+                     </label>
+                <input type="text" id="address"
+                required
+                formControlName="details"
+                 placeholder="Details Address"
+                 [ngClass]="{
+                  'is-invalid':shopingForm.get('details')?.invalid && shopingForm.get('details')?.touched ,
+                  'is-valid':shopingForm.get('details')?.valid && shopingForm.get('details')?.touched
+                 }"
+                 >
+                 @if (shopingForm.get('details')?.errors && shopingForm.get('details')?.touched) {
+                  <div class="text-danger mt-1 small">
+                          @if (shopingForm.get('details')?.errors?.['required']) {
+                               <span>Address Details  is required.</span>
+                                }
+                          @if (shopingForm.get('details')?.errors?.['minlength']) {
+                                <span> Minimum 3 characters required.</span>
+                                 }
+                           
+                    </div>
+                 }
+                </div>
+        
+                <button class="mt-2 ceridet-btn" [disabled]="shopingForm.invalid || spinn()">
+                  @if(spinn()){
+                    <i class="fa-spin fa-spinner fa-solid"></i>
+                  }
+                  @else{
+                    Credit Payment
+                  }
+                    
+                  </button>
+              </form>
+            </div>        
+        </div>
+        <div class="col-md-6 mt-4">
+            <div class="credit-Photo">
+               <img src="/creditCard.08febc36272ba154f91e.png" alt="">
+            </div>
+        </div>
+    </div>
+ </div>
+</section>

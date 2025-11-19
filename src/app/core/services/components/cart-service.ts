@@ -1,4 +1,4 @@
-import { quantity } from './../../interfaces/components/cart';
+import { checkOutForm, quantity } from './../../interfaces/components/cart';
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject, signal } from '@angular/core';
 import { Cart, Root } from '../../interfaces/components/cart';
@@ -22,7 +22,9 @@ export class CartService {
   }
 
   getUserCart():Observable<Root>{
-    return this.htpp.get<Root>(`${ecStoreUrl.storeUrl}/api/v1/cart`)
+    return this.htpp.get<Root>(`${ecStoreUrl.storeUrl}/api/v1/cart`).pipe(
+      tap(()=>{this.loadCartCount()})
+     )    
   }
 
   updateProductQuantityInCart(count:quantity , productId:string):Observable<any>{
@@ -39,6 +41,12 @@ export class CartService {
 
   clearUserCart():Observable<any>{
       return this.htpp.delete(`${ecStoreUrl.storeUrl}/api/v1/cart`).pipe(
+      tap(()=>{this.loadCartCount()})
+     )    
+  }
+
+  checkOut(shippingAddress:checkOutForm,cartId:string):Observable<any>{
+    return this.htpp.post(`${ecStoreUrl.storeUrl}/api/v1/orders/checkout-session/${cartId}?url=http://localhost:3000`,shippingAddress).pipe(
       tap(()=>{this.loadCartCount()})
      )    
   }

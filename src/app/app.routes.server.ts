@@ -7,6 +7,10 @@ export const serverRoutes: ServerRoute[] = [
     renderMode: RenderMode.Server
   },
   {
+    path: 'checkOut/:id', 
+    renderMode: RenderMode.Server
+  },
+  {
     path: 'home',
     renderMode: RenderMode.Server
   },
