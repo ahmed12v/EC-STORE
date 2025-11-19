@@ -69,6 +69,6 @@ input.is-valid {
         padding-right: 0px !important;
     }
     .credit-Photo img{
-        width:400px ;
+        width:100% ;
     }
 }
