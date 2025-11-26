@@ -15,6 +15,14 @@ export const serverRoutes: ServerRoute[] = [
     renderMode: RenderMode.Server
   },
   {
+    path: 'brands',
+    renderMode: RenderMode.Server
+  },
+  {
+    path: 'category',
+    renderMode: RenderMode.Server
+  },
+  {
     path: 'forget-password',
     renderMode: RenderMode.Server
   },
