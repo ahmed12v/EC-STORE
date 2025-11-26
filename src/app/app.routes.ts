@@ -66,6 +66,18 @@ export const routes: Routes = [
              canActivate:[roterGurdGuard]
     },
     {
+        path:'brands',
+        loadComponent:()=>
+            import('./features/components/Brands/brand/brand').then((c)=>c.Brand),
+             canActivate:[roterGurdGuard]
+    },
+    {
+        path:'category',
+        loadComponent:()=>
+            import('./features/components/categories/categories/categories').then((c)=>c.Categories),
+             canActivate:[roterGurdGuard]
+    },
+    {
         path:'checkOut/:id',
         loadComponent:()=>
             import('./Addtions/check-out/check-out').then((c)=>c.CheckOut),

@@ -1,0 +1,54 @@
+<section class="category-section">
+    <div class="container mt-5">
+        <div class="row d-flex align-items-center">
+            <div class="col-lg-3 col-md-6 p-3">
+                <div class="define-first ">
+               <h1>
+                  Our Categories
+               </h1> 
+               <p >
+                You Can See our categories and each category includes the products in it
+               </p>
+                </div>
+            </div>
+            @for (item of Result(); track $index) {
+                <div class="col-lg-3 col-md-4 col-sm-6 p-3" appScrollReveal
+                (click)="openPopupNow(item._id)">
+                <div class="category-item text-center cursor-pointer">
+                    <img [src]="item.image" [alt]="item.name" >
+                     <h2> {{item.name}} </h2>
+                </div>
+            </div>
+            }
+            
+            
+        
+        </div>
+    </div>
+</section>
+
+  <div class="category-popup " [class.show]="openPopup()">
+    <div class="container categoryById">
+      <div class="d-flex ps-3 pe-1 pb-3">
+        <button class="ms-auto closeBtn" (click)="closePopup()"> 
+          <i class="fa-regular fa-circle-xmark"></i>
+        </button>
+      </div>
+
+      <div class="row ps-5 pe-5 pb-5 d-flex justify-content-center align-items-center gy-4">
+        <div class="col-md-6">
+          <div class="Photo-detials"> 
+            <img [src]="dataObject?.image" [alt]="dataObject?.name">
+          </div>
+        </div>
+
+        <div class="col-md-6 text-center">
+          <div class="item-detials"> 
+            <h1>{{ dataObject?.name }}</h1>
+            <p>{{ dataObject?.createdAt }}</p>
+            <p>{{ dataObject?.updatedAt }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
