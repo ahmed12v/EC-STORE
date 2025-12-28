@@ -36,7 +36,9 @@ export class ProuductDetials implements OnInit{
   },
 };
   ngOnInit(): void {
-    this.getSpecialProduct()
+    this.specialPRoduct.set(
+      this._ActivateRoute.snapshot.data['thisProductDetials']
+    )
   }
  constructor(@Inject(PLATFORM_ID) private platformId: Object){}
 _toster=inject(ToastrService)
@@ -48,34 +50,6 @@ _injector=inject(Injector)
 spinnerLoad=signal(false)
 specialPRoduct=signal<Partial<Root2>>({})
 
-getSpecialProduct()
-{
-  let id :string 
-  this._ActivateRoute.params.subscribe({
-    next:parmeter=>{
-      id=parmeter['id']
-    }
-  });
- this.spinnerLoad.set(true)
- runInInjectionContext(this._injector, ()=>{
-    const specialSignal = toSignal(this._homeService.getOneProuduct(id).pipe(
-      tap({
-          next:res=>{
-            this.spinnerLoad.set(false);
-            this.specialPRoduct.set(res)
-            //console.log('commmmmmme' , this.specialPRoduct());
-            
-          },
-          error:err=>{
-            console.log(err);
-            
-          }
-      })
-    ))
-    
- });
-
-}
 
 //#region addProductToCart
 addForm=new FormGroup({

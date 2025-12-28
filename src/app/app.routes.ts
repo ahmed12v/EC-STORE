@@ -2,6 +2,7 @@
 import { Routes } from '@angular/router';
 import { roterGurdGuard } from './core/gurds/roter-gurd-guard';
 import { Notfound } from './features/components/notfound/notfound/notfound';
+import { productDetialsResolver } from './core/resolvers/product-detials-resolver';
 
 export const routes: Routes = [
     {
@@ -45,7 +46,10 @@ export const routes: Routes = [
         path:'prouductDeteils/:id',
         loadComponent:()=>
             import('./Addtions/prouduct-detials/prouduct-detials').then((c)=>c.ProuductDetials),
-             canActivate:[roterGurdGuard]
+             canActivate:[roterGurdGuard],
+             resolve:{
+                thisProductDetials:productDetialsResolver
+            }
     },
     {
         path:'prouduct',
