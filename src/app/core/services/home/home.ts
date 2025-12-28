@@ -10,15 +10,9 @@ import { toSignal } from '@angular/core/rxjs-interop';
 })
 export class HomeService {
   htpp=inject(HttpClient)
- private _allProducts = signal<Root | null | undefined>(null);
 
-  get allProducts() {
-    if (this._allProducts()) return this._allProducts;
-
-    const obs$ = this.htpp.get<Root>(`${ecStoreUrl.storeUrl}/api/v1/products`);
-    const allProductsSignal = toSignal(obs$) ?? signal<Root | null | undefined>(null);
-    this._allProducts.set(allProductsSignal());
-    return this._allProducts;
+  getallProducts():Observable<Root> {
+   return   this.htpp.get<Root>(`${ecStoreUrl.storeUrl}/api/v1/products`)
   }
   
   getOneProuduct(id:string):Observable<Root2>{

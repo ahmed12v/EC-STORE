@@ -45,7 +45,7 @@ export class Home implements OnInit{
 
   runInInjectionContext(this._injector, () => {
     const comeProud = toSignal(
-      this.homeService.getAllProud().pipe(
+      this.homeService.getallProducts().pipe(
         tap({
           next: (res) => {
             this.loadSpinner.set(false);
