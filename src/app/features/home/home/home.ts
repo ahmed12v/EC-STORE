@@ -1,8 +1,8 @@
-import { Component, inject, Injector, OnInit, runInInjectionContext, signal, Pipe, Inject, PLATFORM_ID } from '@angular/core';
+import { Component, inject, Injector, OnInit, runInInjectionContext, signal, Inject, PLATFORM_ID } from '@angular/core';
 import { HomeSliderOne } from '../../../Addtions/home-slider-one/home-slider-one';
 import { GategoryHomeSlider } from '../../../Addtions/gategory-home-slider/gategory-home-slider';
 import { HomeService } from '../../../core/services/home/home';
-import { Proud } from '../../../core/interfaces/components/product';
+import { Proud, Root } from '../../../core/interfaces/components/product';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { tap } from 'rxjs';
 import { ScrollRevealDirective } from '../../../shared/directives/animationScrool';
@@ -44,10 +44,10 @@ export class Home implements OnInit{
   this.loadSpinner.set(true);
 
   runInInjectionContext(this._injector, () => {
-    const comeProud = toSignal(
+    const comeProud = toSignal<Root>(
       this.homeService.getallProducts().pipe(
         tap({
-          next: (res) => {
+          next: (res:Root) => {
             this.loadSpinner.set(false);
             this.allProuduct.set(res.data);
             //console.log(this.allProuduct());

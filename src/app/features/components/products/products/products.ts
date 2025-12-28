@@ -10,7 +10,7 @@ import { SerchPipePipe } from '../../../../shared/pipes/serch-pipe-pipe';
 import { FormControl, FormGroup, FormsModule, Validators } from "@angular/forms";
 import { ToastrService } from 'ngx-toastr';
 import { CartService } from '../../../../core/services/components/cart-service';
-import { Cart } from '../../../../core/interfaces/components/cart';
+import { Cart, Root } from '../../../../core/interfaces/components/cart';
 import { WishlistService } from '../../../../core/services/components/wishlist';
 import { bodyWish } from '../../../../core/interfaces/components/wishlist';
 
@@ -41,7 +41,7 @@ ngOnInit(): void {
 
   runInInjectionContext(this._injector, () => {
     const comeProud = toSignal(
-      this.homeService.getAllProud().pipe(
+      this.homeService.getallProducts().pipe(
         tap({
           next: (res) => {
             this.loadSpinner.set(false);
