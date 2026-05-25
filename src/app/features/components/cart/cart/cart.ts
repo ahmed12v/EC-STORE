@@ -5,7 +5,6 @@ import { tap } from 'rxjs';
 import { quantity, Root } from '../../../../core/interfaces/components/cart';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
-import { log } from 'console';
 import { RouterLink } from '@angular/router';
 @Component({
   selector: 'app-cart',

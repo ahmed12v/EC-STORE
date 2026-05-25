@@ -40,7 +40,7 @@
 
 <div class="container mt-5">
   @for (item of userCartCome()?.data?.products; track $index) {
-    <div class="row mb-4 details  p-2 ">
+    <div class="row mb-4 details cursor-pointer p-2 "  [routerLink]="['/prouductDeteils',item.product._id]">
   <div class="col-md-1 ">
       <div class="width-photo  d-flex justify-content-center align-items-center">
          <img [src]="item.product.imageCover" alt="">

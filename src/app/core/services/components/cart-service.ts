@@ -14,9 +14,6 @@ export class CartService {
   private destroyRef = inject(DestroyRef);
   numberOfitmes = signal(0);
 
-  constructor() {
-    this.loadCartCount();
-  }
 
   addProductTouserCart(productId: Cart): Observable<any> {
     return this.htpp.post(`${ecStoreUrl.storeUrl}/api/v1/cart`, productId).pipe(
